@@ -1,8 +1,8 @@
 import express, { Router, response } from "express";
-import connectDB from "./db/index.js";
-import app from "./app.js";
-import { User } from "./models/user.models.js";
-import { Post } from "./models/post.models.js";
+import connectDB from "./src/db/index.js";
+import app from "./src/app.js";
+import { User } from "./src/models/user.models.js";
+import { Post } from "./src/models/post.models.js";
 
 const posts = [
 	{
