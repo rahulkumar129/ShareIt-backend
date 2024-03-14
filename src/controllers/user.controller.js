@@ -12,7 +12,6 @@ const AccessToken = async (username) => {
 };
 
 const loginUser = (req, res) => {
-	console.log(req.user);
 	(async () => {
 		try {
 			const { username, password } = req.body;
@@ -74,20 +73,31 @@ const isLogged = async (req, res) => {
 };
 
 const registerUser = async (req, res) => {
-	const { username, email, password } = req.body;
 	try {
+		const { username, email, password } = req.body;
 		const existingUser = await User.findOne({ username });
 		if (!existingUser) {
 			const existingEmail = await User.findOne({ email });
 			if (!existingEmail) {
 				const NewUser = new User({ username, email, password });
 				await NewUser.save();
-				res.status(200).json({ message: "User added Successfully" });
 				console.log("User added successfully!!\n", {
 					username,
 					email,
 					password,
 				});
+				const options = {
+					httpOnly: true,
+					secure: true,
+				};
+				const accessToken = await AccessToken({
+					username: NewUser.username,
+				});
+				res.status(200)
+					.cookie("accessToken", accessToken, options)
+					.json({
+						message: "Signup Successful",
+					});
 			} else {
 				res.status(400).json({
 					message: "Please enter a unique email",

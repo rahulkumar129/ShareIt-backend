@@ -13,7 +13,9 @@ app.use(cookieParser());
 
 // Use Routes
 import userRouter from "./routes/user.routes.js";
+import uploadRouter from "./routes/upload.routes.js";
 
 app.use("/auth", userRouter);
+app.use("/api", uploadRouter);
 
 export default app;
