@@ -69,7 +69,7 @@ const isLogged = async (req, res) => {
 		res.status(500).json({
 			message: "Internal Server Error ☹️",
 		});
-		console.log("Error verifying user!! ", error);
+		console.log("Error verifying user!! ");
 	}
 };
 
