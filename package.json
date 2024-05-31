@@ -5,7 +5,11 @@
 	"main": "index.js",
 	"type": "module",
 	"scripts": {
+<<<<<<< HEAD
 		"start": "nodemon index.js"
+=======
+		"start": "nodemon src/index.js"
+>>>>>>> 0786146c1e5acf7228ae28a59edf69cc5e2bde7a
 	},
 	"author": "Rahul",
 	"license": "ISC",

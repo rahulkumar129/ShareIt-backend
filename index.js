@@ -35,9 +35,9 @@ connectDB()
 			res.send("The backend is successfully running");
 		});
 
-		app.get("/api/posts", async (req, res) => {
+		app.get("/data/posts", async (req, res) => {
 			try {
-				let posts = await Post.find({});
+				// let posts = await Post.find({});
 				res.send(posts);
 			} catch (error) {
 				console.error(`Error fetching posts: ${error}`);
