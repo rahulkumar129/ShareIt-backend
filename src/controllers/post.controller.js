@@ -2,8 +2,8 @@ import { Post } from "../models/post.models.js";
 import { User } from "../models/user.models.js";
 
 const uploadPost = async (req, res) => {
-	const { username, postTitle, imageUrl, caption } = req.body;
 	try {
+		const { username, postTitle, imageUrl, caption } = req.body;
 		if (!username || !postTitle || !imageUrl) {
 			return res.status(400).json({
 				message: "Please fill all the fields",
